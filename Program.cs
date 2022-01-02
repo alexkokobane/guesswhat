@@ -1,28 +1,34 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-
-Random num = new Random();
-
-int cpuNum = num.Next(15);
-
 
 
 int hearts = 15;
 while(hearts > 0 && hearts < 30) {
-	Console.WriteLine("Guess a number between 0 and 15:");
-	int userNum = Int32.Parse(Console.ReadLine());
+	Random num = new Random();
+	int cpuNum = num.Next(15);
+	int defNum1 = num.Next(15);
+	int defNum2 = num.Next(15);
+	int[] guess = {cpuNum, defNum1, defNum2};
+	Console.WriteLine("Guess the correct number from these three");
+	foreach(int n in guess){
+		Console.WriteLine(n);
+	}
+	string reader = Console.ReadLine();
+	int userNum;
+	if(Int32.TryParse(reader, out userNum)) return userNum;
 	if(userNum != cpuNum){
 		hearts--;
+		Console.WriteLine();
 		Console.WriteLine($"Wrong! The right answer is {cpuNum}");
 		Console.WriteLine();
 		Console.WriteLine($"You have {hearts} points");
 		Console.WriteLine("**************************");
 		Console.WriteLine();
 	} else if(userNum == cpuNum){
-		Console.WriteLine("Good guess!");
 		hearts++;
-		Console.WriteLine($"You have {hearts} points");
 		Console.WriteLine();
+		Console.WriteLine("Good guess!");
+		Console.WriteLine();
+		Console.WriteLine($"You have {hearts} points");
 		Console.WriteLine("**************************");
 		Console.WriteLine();
 	}
