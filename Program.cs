@@ -22,22 +22,22 @@ while(hearts > 0 && hearts < 30) {
 	int userNum = Int32.Parse(Console.ReadLine());
 	System.Threading.Thread.Sleep(1000);
 	if(userNum != cpuNum){
-		hearts-randomPoints;
+		int points = hearts-randomPoints;
 		Console.WriteLine();
 		Console.WriteLine($"Wrong! The right answer is {cpuNum}");
 		Console.WriteLine();
-		Console.WriteLine($"You have {hearts} points");
+		Console.WriteLine($"You have {points} points");
 		Console.WriteLine("**************************");
 		Console.WriteLine();
 		System.Threading.Thread.Sleep(1000);
 		Console.Write("Press enter :(");
 		Console.ReadKey();
 	} else if(userNum == cpuNum){
-		hearts+randomPoints;
+		int points = hearts+randomPoints;
 		Console.WriteLine();
 		Console.WriteLine("Good guess!");
 		Console.WriteLine();
-		Console.WriteLine($"You have {hearts} points");
+		Console.WriteLine($"You have {points} points");
 		Console.WriteLine("**************************");
 		Console.WriteLine();
 		System.Threading.Thread.Sleep(1000);
